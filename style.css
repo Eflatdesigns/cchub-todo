@@ -1,0 +1,330 @@
+/* Include the padding and border in an element's total width and height */
+* {
+    box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the list items */
+ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #fc0;
+    font-size: 18px;
+    transition: 0.2s;
+
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+    background: #fc8;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+    background: #7ca;
+}
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+    background: #7ca;
+    color: #fff;
+    text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
+/* Style the close button */
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+    background-color: #fc730a;
+    color: white;
+}
+
+/* Style the header */
+.header {
+    background-color: #7cf;
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+    font-family: sans-serif
+}
+
+/* Clear floats after the header */
+.header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the input */
+input {
+    border: none;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+    padding: 10px;
+    width: 25%;
+    background: #fc0;
+    color: #555;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.addBtn:hover {
+    background-color: #fcdfc6;
+}
+
+/*header {
+	width:94%;
+	height:80px;
+	position:fixed;
+	padding:15px;
+	top:0;
+	left:0;
+	z-index:5;
+	background:#684182;
+	box-shadow:0px 2px 4px rgba(44,62,80,0.15);
+	border-bottom-right-radius:10px;
+	border-bottom-left-radius:10px;
+}
+ 
+header input {
+	width:100%;
+	height:50px;
+	float:left;
+	color:#fff;
+	font-size:15px;
+	font-weight:400;
+	text-indent:18px;
+	padding:0 60px 0 0;
+	background:rgba(255,255,255,0.2);
+	border-top-left-radius:5px;
+	border-bottom-left-radius:5px;
+	border-top-right-radius:25px;
+	border-bottom-right-radius:25px;
+	border:0px;
+	box-shadow:none;
+	outline:none;
+ 
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	-ms-appearance:none;
+	-o-appearance:none;
+	appearance:none;
+}
+ 
+header input::-webkit-input-placeholder {
+	color:rgba(255,255,255,0.75);
+}
+ 
+header input:-moz-input-placeholder {
+	color:rgba(255,255,255,0.75);
+}
+ 
+header input::-moz-input-placeholder {
+	color:rgba(255,255,255,0.75);
+}
+ 
+header input:-ms-input-placeholder {
+	color:rgba(255,255,255,0.75);
+}
+ 
+header button {
+	width:50px;
+	height:50px;
+	position:absolute;
+	top:15px;
+	right:15px;
+	z-index:2;
+	border-radius:25px;
+	background:#fff;
+	border:0px;
+	box-shadow:none;
+	outline:none;
+	cursor:pointer;
+ 
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	-ms-appearance:none;
+	-o-appearance:none;
+	appearance:none;
+}
+ 
+header button img {
+	width:16px;
+	height:16px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-8px 0 0 -8px;
+}
+ 
+header button img .overlay {
+	color:#25b99a;
+}
+
+.container {
+	width:100%;
+	float:left;
+	padding:15px;
+}
+ 
+ul.todo {
+	width:100%;
+	float:left;
+}
+
+ul.todo li {
+	width:100%;
+	min-height:50px;
+	float:left;
+	font-size:14px;
+	font-weight:500;
+	color:#444;
+	line-height:22px;
+ 
+	background:#fff;
+	border-radius:5px;
+	position:relative;
+	box-shadow:0px 1px 2px rgba(44,62,80,0.10);
+	margin:0 0 10px 0;
+	padding:14px 100px 14px 14px;
+}
+ 
+ul.todo li:last-of-type {
+	margin:0;
+}
+ 
+ul.todo li .buttons {
+	width:100px;
+	height:50px;
+	position:absolute;
+	top:0;
+	right:0;
+}
+ 
+ul.todo li .buttons button {
+	width:50px;
+	height:50px;
+	float:left;
+	background:none;
+	position:relative;
+	border:0px;
+	box-shadow:none;
+	outline:none;
+	cursor:pointer;
+ 
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	-ms-appearance:none;
+	-o-appearance:none;
+	appearance:none;
+}
+ 
+ul.todo li .buttons button:last-of-type:before {
+	content:'';
+	width:1px;
+	height:30px;
+	position:absolute;
+	top:10px;
+	left:0;
+	background:#edf0f1;
+}
+ 
+ul.todo li .buttons button svg {
+	width:22px;
+	height:22px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-11px 0 0 -11px;
+}
+ 
+ul.todo li .buttons button.complete svg {
+	border-radius:11px;
+	border:1.5px solid #25b99a;
+ 
+	-webkit-transition:background 0.2s ease;
+	-moz-transition:background 0.2s ease;
+	-ms-transition:background 0.2s ease;
+	-o-transition:background 0.2s ease;
+	transition:background 0.2s ease;
+}
+ 
+ul.todo#completed li .buttons button.complete svg {
+	background:#25b99a;
+	border:0px;
+}
+ 
+ul.todo:not(#completed) li .buttons button.complete:hover svg {
+	background:rgba(37,185,154,0.75);
+}
+ 
+ul.todo:not(#completed) li .buttons button.complete:hover svg .fill {
+	fill:#fff;
+}
+ 
+ul.todo#completed li .buttons button.complete svg .fill {
+	fill:#fff;
+}
+ 
+ul.todo li .buttons button svg .fill {
+	-webkit-transition:fill 0.2s ease;
+	-moz-transition:fill 0.2s ease;
+	-ms-transition:fill 0.2s ease;
+	-o-transition:fill 0.2s ease;
+	transition:fill 0.2s ease;
+}
+ 
+ul.todo li .buttons button.remove svg .fill {
+	fill:#c0cecb;
+}
+ 
+ul.todo li .buttons button.remove:hover svg .fill {
+	fill:#e85656;
+}
+ 
+ul.todo li .buttons button.complete svg .fill {
+	fill:#25b99a;
+}*/
